@@ -18,8 +18,8 @@ public class StringEx3 {
 		email = email.replace('@', '_');
 		System.out.println("After Email : " + email);
 		
-		String str = " a";
-		String str2 = null;
-		System.out.println("STR : " + str2.length());
+//		String str = " a";
+//		String str2 = null;
+//		System.out.println("STR : " + str2.length());
 	}
 }
