@@ -31,17 +31,13 @@ public class WeatherInput {
 		WeatherDTO input = new WeatherDTO();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("도시 이름을 입력하세요");
-		String city = sc.next();
-		input.setCity(city.toUpperCase());
+		input.setCity(sc.next().toUpperCase());
 		System.out.println("온도를 입력하세요");
-		String gion = sc.next();
-		input.setGion(gion);
+		input.setGion(sc.next());
 		System.out.println("날씨 상태를 입력하세요");
-		String status = sc.next();
-		input.setStatus(status);
+		input.setStatus(sc.next());
 		System.out.println("미세먼지 농도를 입력하세요");
-		String mise = sc.next();
-		input.setMise(mise);
+		input.setMise(sc.next());
 		newData[newData.length-1] = input;
 		return newData;
 	}
