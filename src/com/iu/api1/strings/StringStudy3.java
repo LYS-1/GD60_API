@@ -1,4 +1,4 @@
-package com.iu.api1.objects;
+package com.iu.api1.strings;
 
 public class StringStudy3 {
 	public static void main(String[] args) {
