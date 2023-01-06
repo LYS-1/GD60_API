@@ -8,18 +8,34 @@ public class StringEx2 {
 		String names[] = {"jpg", "jpeg", "gif", "png"};
 		System.out.println("파일명을 입력");
 		String fileName = sc.next();
-		boolean check = false;
-		//System.out.println(fileName.substring(fileName.lastIndexOf('.') + 1));
+		int idx = fileName.lastIndexOf('.');
+		String result = fileName.substring(idx + 1);
+		
+		switch(result) {
+		case "jpg":
+			System.out.println(names[0]);
+			break;
+		case "jpeg":
+			System.out.println(names[1]);
+			break;
+		case "gif":
+			System.out.println(names[2]);
+			break;
+		case "png":
+			System.out.println(names[3]);
+			break;
+			
+		}
+		
+		boolean check = true;
 		for(int i = 0; i < names.length; i ++) {
-			if(names[i].equals(fileName.substring(fileName.lastIndexOf('.')+ 1))) {
-				check = true;
-				System.out.print(names[i] + " ");
+			if(names[i].equals(result)) {
+				System.out.print(names[i] + "이미지 파일");
+				check = false;
 				break;
 			}
 		}
-		if(check == true) {
-			System.out.println("이미지 파일");
-		}else {
+		if(check) {
 			System.out.println("파일명 오류");
 		}
 	}
