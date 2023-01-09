@@ -2,36 +2,45 @@ package com.iu.api1.strings.ex3;
 
 public class WeatherDTO {
 	
-	private String City = "";
-	private String gion = "";
-	private String status = "";
-	private String mise = "";
+	private String city;
+	private int gion;
+	private String status;
+	private int mise;
 	
 	public WeatherDTO() {
 		
 	}
+
 	public String getCity() {
-		return City;
+		return city;
 	}
+
 	public void setCity(String city) {
-		City = city;
+		this.city = city;
 	}
-	public String getGion() {
+
+	public int getGion() {
 		return gion;
 	}
-	public void setGion(String gion) {
+
+	public void setGion(int gion) {
 		this.gion = gion;
 	}
+
 	public String getStatus() {
 		return status;
 	}
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getMise() {
+
+	public int getMise() {
 		return mise;
 	}
-	public void setMise(String mise) {
+
+	public void setMise(int mise) {
 		this.mise = mise;
 	}
+	
 }

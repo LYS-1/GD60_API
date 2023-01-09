@@ -23,9 +23,9 @@ public class WeatherData {
 			result[i+3] = result[i+3].trim();
 			WeatherDTO weatherDTO = new WeatherDTO();
 			weatherDTO.setCity(result[i]);
-			weatherDTO.setGion(result[i+1]);
+			weatherDTO.setGion(Integer.parseInt(result[i+1]));
 			weatherDTO.setStatus(result[i+2]);
-			weatherDTO.setMise(result[i+3]);
+			weatherDTO.setMise(Integer.parseInt(result[i+3]));
 			
 			DTO[count] = weatherDTO;
 			count ++;

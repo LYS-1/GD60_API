@@ -33,11 +33,11 @@ public class WeatherInput {
 		System.out.println("도시 이름을 입력하세요");
 		input.setCity(sc.next().toUpperCase());
 		System.out.println("온도를 입력하세요");
-		input.setGion(sc.next());
+		input.setGion(sc.nextInt());
 		System.out.println("날씨 상태를 입력하세요");
 		input.setStatus(sc.next());
 		System.out.println("미세먼지 농도를 입력하세요");
-		input.setMise(sc.next());
+		input.setMise(sc.nextInt());
 		newData[newData.length-1] = input;
 		return newData;
 	}
