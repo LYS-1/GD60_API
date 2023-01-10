@@ -19,31 +19,29 @@ public class StudentController {
 			act = sc.nextInt();
 			switch(act) {
 			case 1:
-				System.out.println("학생 정보 초기화");
 				sdt = sDAO.init();
 				break;
 			case 2:
-				System.out.println("학생 전체 정보 출력");
-				sv.viewAll(sdt);
+				sv.view(sdt);
 				break;
 			case 3:
-				System.out.println("학생 정보 검색");
-				sDAO.findStudent(sdt);
+				int result = sDAO.findStudent(sdt);
+				if(result == 0) {
+					sv.view("학생 정보가 없습니다.");
+				}else {
+					sv.view(sdt.get(result));
+				}
 				break;
 			case 4:
-				System.out.println("학생 정보 추가");
 				sDAO.addStudent(sdt);
 				break;
 			case 5:
-				System.out.println("학생 정보 삭제");
 				sDAO.delStudent(sdt);
 				break;
 			case 6:
-				System.out.println("프로그램 종료");
 				check = false;
 				break;
 			default :
-				System.out.println("다시 선택");
 				break;
 			}
 		}

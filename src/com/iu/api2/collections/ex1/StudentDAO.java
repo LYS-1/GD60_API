@@ -80,27 +80,16 @@ public class StudentDAO {
 		}
 	}
 	//학생 정보 찾기
-	public void findStudent(ArrayList<StudentDTO> sdt) {
+	public int findStudent(ArrayList<StudentDTO> sdt) {
 		System.out.println("이름을 입력하세요.");
-		String s = sc.next();
-		int id = -1;
+		String s = sc.next().toUpperCase();
+		int id = 0;
 		for( int i = 0; i < sdt.size(); i ++) {
 			if(sdt.get(i).getName().equals(s)) {
 				id = i;
 				break;
 			}
 		}
-		if(id == -1) {
-			System.out.println("없는학생입니다.");
-		}else {
-			System.out.println("학생의 이름 " + sdt.get(id).getName());
-			System.out.println("학생의 번호 " + sdt.get(id).getNumber());
-			System.out.println("학생의 국어 성적 " + sdt.get(id).getKor());
-			System.out.println("학생의 영어 성적 " + sdt.get(id).getEng());
-			System.out.println("학생의 수학 성적 " + sdt.get(id).getMath());
-			System.out.println("학생의 총성적 " + sdt.get(id).getSum());
-			System.out.println("학생의 평균 성적 " + sdt.get(id).getAvg());
-		}
-		
+		return id;
 	}
 }
