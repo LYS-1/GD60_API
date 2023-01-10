@@ -11,12 +11,13 @@ public class Ex1Main {
 		//4. 학생 정보 추가
 		//5. 학생 정보 삭제(이름)
 		//6. 프로그램 종료
-		
-		StudentDAO dao = new StudentDAO();
-		ArrayList<StudentDTO> ar = dao.init();
-		StudentDTO std = dao.findByName(ar);
-		System.out.println(std.getName());
-		System.out.println(std.getAvg());
+		StudentController sCon = new StudentController();
+		sCon.start();
+//		StudentDAO dao = new StudentDAO();
+//		ArrayList<StudentDTO> ar = dao.init();
+//		StudentDTO std = dao.findByName(ar);
+//		System.out.println(std.getName());
+//		System.out.println(std.getAvg());
 		//향상된 for문
 //		for(StudentDTO studentDTO:ar) {
 //			System.out.println(studentDTO.getName());
