@@ -11,5 +11,7 @@ public class Ex1Main {
 		//6. 프로그램 종료
 		StudentController stc = new StudentController();
 		
+		stc.start();
+		
 	}
 }
