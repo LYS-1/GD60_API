@@ -30,6 +30,7 @@ public class StudentController {
 			System.out.println("5. 학생 정보 삭제(이름)");
 			System.out.println("6. 프로그램 종료");
 			System.out.println("7. 학생 정보 백업");
+			System.out.println("8. test");
 			int select = sc.nextInt();
 			
 			switch(select) {
@@ -62,6 +63,10 @@ public class StudentController {
 				check = false;
 				break;
 			case 7:
+				sDAO.saveStudent(ar);
+				break;
+			case 8:
+				sDAO.save(ar);
 				break;
 			default : 
 				System.out.println("잘못된 번호");
