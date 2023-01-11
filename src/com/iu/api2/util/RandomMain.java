@@ -1,6 +1,7 @@
 package com.iu.api2.util;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Random;
 
 public class RandomMain {
@@ -9,7 +10,9 @@ public class RandomMain {
 		ArrayList<Integer> numArr = new ArrayList<>();
 		//1000원 로또구매 1-45 번호 6개를 랜덤하게 추출
 		boolean check = true;
+		
 		int count = 0;
+		
 		while(check) {
 			int num = r.nextInt(45) + 1;
 			boolean same = false;
@@ -30,9 +33,16 @@ public class RandomMain {
 				check = false;
 			}
 		}
+		
 		System.out.println("길이 : " + numArr.size());
+		
 		for(int i = 0; i < numArr.size(); i ++) {
 			System.out.println(numArr.get(i));
 		}
+		
+//		HashSet<Integer> hs = new HashSet<>();
+//		while(hs.size() < 6) {
+//			hs.add(r.nextInt(45)+1);
+//		}
 	}
 }	
