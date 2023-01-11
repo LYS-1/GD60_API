@@ -16,11 +16,11 @@ public class StudentController {
 	}
 	public void start() {
 		//1. 학생 정보 초기화
-				//2. 학생 정보 전체 조회
-				//3. 학생 정보 검색 조회(이름)
-				//4. 학생 정보 추가
-				//5. 학생 정보 삭제(이름)
-				//6. 프로그램 종료
+		//2. 학생 정보 전체 조회
+		//3. 학생 정보 검색 조회(이름)
+		//4. 학생 정보 추가
+		//5. 학생 정보 삭제(이름)
+		//6. 프로그램 종료
 		boolean check = true;
 		while(check) {
 			System.out.println("1. 학생 정보 초기화");
@@ -29,6 +29,7 @@ public class StudentController {
 			System.out.println("4. 학생 정보 추가");
 			System.out.println("5. 학생 정보 삭제(이름)");
 			System.out.println("6. 프로그램 종료");
+			System.out.println("7. 학생 정보 백업");
 			int select = sc.nextInt();
 			
 			switch(select) {
@@ -59,6 +60,8 @@ public class StudentController {
 				break;
 			case 6 :
 				check = false;
+				break;
+			case 7:
 				break;
 			default : 
 				System.out.println("잘못된 번호");
