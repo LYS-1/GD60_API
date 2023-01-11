@@ -1,6 +1,9 @@
 package com.iu.api2.collections.ex1;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -14,6 +17,59 @@ public class StudentDAO {
 		sb.append("suji, 3, 89, 74, 87 ");
 		sb.append("choa, 4, 72, 25, 99");
 	}
+	//학생 정보 백업 현재 시간을 파일명으로
+	public void saveStudent(ArrayList<StudentDTO> ar) {
+		File f = new File("C:\\filetest", "student" + Calendar.getInstance().getTimeInMillis() +".txt");
+		ArrayList<String> arrayS = new ArrayList<>();
+		String str;
+		for(int i = 0 ; i < ar.size(); i ++) {
+			str = ar.get(i).getName() + " - " + ar.get(i).getNumber() + " - " + ar.get(i).getKor() + " - " 
+						+ ar.get(i).getEng() + " - " + ar.get(i).getMath();
+			arrayS.add(str);
+		}
+		for(int i = 0 ; i < arrayS.size(); i ++) {
+			str = arrayS.get(i);
+			try {
+				FileWriter fw = new FileWriter(f, true);
+				fw.write(str + "\r\n");
+				fw.flush();
+				System.out.println("정보 저장 완료");
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("오류");
+			}
+		}
+	}
+	//한파일로만
+	public void save(ArrayList<StudentDTO> ar) {
+		File check = new File("C:\\filetest", "student.txt");
+		if(check.exists()) {
+			System.out.println("삭제");
+			check.delete();
+		}
+		File f = new File("C:\\filetest", "student.txt");
+		ArrayList<String> arrayS = new ArrayList<>();
+		String str;
+		for(int i = 0 ; i < ar.size(); i ++) {
+			str = ar.get(i).getName() + " - " + ar.get(i).getNumber() + " - " + ar.get(i).getKor() + " - " 
+						+ ar.get(i).getEng() + " - " + ar.get(i).getMath();
+			arrayS.add(str);
+		}
+		for(int i = 0 ; i < arrayS.size(); i ++) {
+			str = arrayS.get(i);
+			try {
+				FileWriter fw = new FileWriter(f, true);
+				fw.write(str + "\r\n");
+				fw.flush();
+				fw.close();
+				System.out.println("정보 저장 완료");
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("오류");
+			}
+		}
+	}
+	
 	//학생 정보 삭제
 	public int removeStudent(ArrayList<StudentDTO> ar) {
 		int result = 0; // 삭제 확인용 변수 0->실패 1->성공
@@ -88,6 +144,7 @@ public class StudentDAO {
 			studentDTO.setAvg(studentDTO.getSum() / 3.0);
 			arr.add(studentDTO);
 		}
+		this.save(arr);
 		return arr;
 	}
 	
