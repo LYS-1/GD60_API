@@ -66,7 +66,7 @@ public class StudentController {
 				sDAO.saveStudent(ar);
 				break;
 			case 8:
-				sDAO.save(ar);
+				sDAO.saveTest(ar);
 				break;
 			default : 
 				System.out.println("잘못된 번호");
