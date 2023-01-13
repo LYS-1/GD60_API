@@ -45,10 +45,11 @@ public class Client2 {
 				
 				bw.write(str + "\r\n");
 				bw.flush();
+				
 				if(Integer.parseInt(str) == 3) {
+					System.out.println("시스템 종료");
 					break;
 				}
-				
 				
 				str = br.readLine();
 				System.out.println(str);

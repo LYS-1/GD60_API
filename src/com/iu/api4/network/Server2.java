@@ -29,7 +29,8 @@ public class Server2 {
 		String str;
 		boolean check = true;
 		Calendar c = Calendar.getInstance();
-		Random r = new Random(c.getTimeInMillis());
+		Random r = null;
+		String msg = null;
 		String lunchL[] = {"짜장면", "짬뽕", "탕수육", "유린기"};
 		String dinnerL[] = {"떡볶이", "순대", "튀김", "김밥"};
 		
@@ -38,13 +39,17 @@ public class Server2 {
 			System.out.println("서버 실행");
 			sc = ss.accept();
 			System.out.println("클라이언트 접속");
+			is = sc.getInputStream();
+			ir = new InputStreamReader(is);
+			br = new BufferedReader(ir);
+			os = sc.getOutputStream();
+			ow = new OutputStreamWriter(os);
+			bw = new BufferedWriter(ow);
+			
 			while(check) {
-				is = sc.getInputStream();
-				ir = new InputStreamReader(is);
-				br = new BufferedReader(ir);
+				r = new Random(c.getTimeInMillis());
 				str = br.readLine();
 				int select = Integer.parseInt(str);
-				String msg = null;
 				switch(select) {
 				case 1 :
 					msg = "점심 메뉴 추천 : " + lunchL[r.nextInt(lunchL.length)];
@@ -64,13 +69,12 @@ public class Server2 {
 					msg = "잘못 입력함";
 					break;
 				}
-				os = sc.getOutputStream();
-				ow = new OutputStreamWriter(os);
-				bw = new BufferedWriter(ow);
-				
-				bw.write(msg + "\r\n");
-				bw.flush();
+				if(check) {
+					bw.write(msg + "\r\n");
+					bw.flush();
+				}
 			}
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
